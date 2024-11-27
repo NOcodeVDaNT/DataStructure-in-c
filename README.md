@@ -1,1 +1,1 @@
-OWNER :vedant dahake aka ghost
+OWNER : vedant dahake aka ghost
