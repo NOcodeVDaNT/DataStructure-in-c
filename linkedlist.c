@@ -1,4 +1,10 @@
-#include "vedxlist.h"
+#include<stdio.h>
+
+#include<stdlib.h>
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
 
 // Function to create a new node
 Node* getNode(int x) {
@@ -9,16 +15,7 @@ Node* getNode(int x) {
 }
 
 // Function to build a linked list with 3 nodes (1 -> 2 -> 3)
-Node* build123() {
-    Node* t1 = getNode(1);
-    Node* t2 = getNode(2);
-    Node* t3 = getNode(3);
 
-    t1->next = t2;
-    t2->next = t3;
-
-    return t1;
-}
 
 void display(Node* p) {
     while (p != NULL) {
@@ -30,11 +27,15 @@ void display(Node* p) {
 // Function to add a node at the end of the list
 Node* addend(Node* s, int x) {
     Node* p = getNode(x);
-    while (s->next != NULL) {
-        s = s->next;
+    if (s == NULL) {
+        return p; // If the list is empty, the new node is the start
     }
-    s->next = p;
-    return s; // Return the modified list
+    Node* temp = s;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = p;
+    return s; // Return the head of the list
 }
 
 Node* addbegin(Node *s, int x) {
@@ -42,14 +43,48 @@ Node* addbegin(Node *s, int x) {
     p->next = s;
     return p;
 }
+void delend(Node *s){
 
+    if (s==NULL)
+    {
+        printf("empty list");
+        return;
+    }
+
+    if (s->next==NULL)
+    {
+        free(s);
+        s=NULL;
+        printf("now the list is empty");
+        return;
+    }
+    
+    
+
+    Node *r,*temp=s;
+    while(temp->next!=NULL){
+        r=temp;
+        temp=temp->next;
+    }
+    r->next=NULL;
+    free(temp);
+}
+int count(Node *s){
+    int count = 0;
+    while (s != NULL) {
+        count++;
+        s = s->next;
+        }
+        return count;
+
+}
 
 
 
 int main() {
     Node* start;
 
-    start = build123();
+    start = addend(NULL,1);
     display(start);
 
     start = addbegin(start, 4);
