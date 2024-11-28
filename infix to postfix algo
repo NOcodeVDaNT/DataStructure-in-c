@@ -1,0 +1,13 @@
+                                                                        INFIX TO POSTFIX 
+
+ 
+STEPS:-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+operator stack is maintained 
+scan input array from left to right
+if operand is input print the operand
+if operator is input and stack is empty push the operator into the stack
+if operator is input and having higher precedence then operator operator at top of stack then perform push operation
+if input is operator and having lower precednece the opertor on top of stack , perform op operator until input operator have higher precedence then top of stack operator and push the operator
+at end pop everything out
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
