@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<string.h>
+
 #include<stdlib.h>
 
 
@@ -54,9 +54,24 @@ Node* insertend (Node* head, int x) {
 
  return head;
 
+ }
 
+
+ Node* deleteNode(Node* head, Node* p) {
+ Node*temp=head;
+ if (p==NULL) {
+    printf("list is empty no such node found");
 
  }
+ while (temp != p) {
+    temp = temp->next;
+
+ }
+ temp->prev->next = temp->next;
+ return head;
+
+}
+
 
 int main(){
 
