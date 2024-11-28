@@ -14,7 +14,20 @@ Node* getNode(int x) {
     return p;
 }
 
-// Function to build a linked list with 3 nodes (1 -> 2 -> 3)
+void indertNodeAfterNode(Node* after,Node *start ,int x){
+    Node *newnode = getNode(x);
+    Node*temp=start;
+    while(temp!=after){
+        temp=temp->next;
+        
+    }
+    Node*temp2=temp->next;
+    temp->next=newnode;
+    newnode->next=temp2;
+    
+
+    
+}
 
 
 void display(Node* p) {
