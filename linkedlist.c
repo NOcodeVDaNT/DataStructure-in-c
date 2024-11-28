@@ -14,20 +14,7 @@ Node* getNode(int x) {
     return p;
 }
 
-void indertNodeAfterNode(Node* after,Node *start ,int x){
-    Node *newnode = getNode(x);
-    Node*temp=start;
-    while(temp!=after){
-        temp=temp->next;
-        
-    }
-    Node*temp2=temp->next;
-    temp->next=newnode;
-    newnode->next=temp2;
-    
-
-    
-}
+// Function to build a linked list with 3 nodes (1 -> 2 -> 3)
 
 
 void display(Node* p) {
@@ -92,18 +79,37 @@ int count(Node *s){
 
 }
 
+void indertNodeAfterNode(Node* after,Node *start ,int x){
+    Node *newnode = getNode(x);
+    Node*temp=start;
+    while(temp!=after){
+        temp=temp->next;
+        
+    }
+    Node*temp2=temp->next;
+    temp->next=newnode;
+    newnode->next=temp2;
+    
+
+    
+}
+
+Node* searchByNode(Node *s,int x){
+    Node*temp=s;
+    while(temp->data!=x && temp!=NULL){
+        temp=temp->next;
+
+    }
+    if (temp==NULL)
+    {
+       printf("elemnt not found");
+       return s;
+    }
+    
+    return temp;
+}
 
 
 int main() {
-    Node* start;
-
-    start = addend(NULL,1);
-    display(start);
-
-    start = addbegin(start, 4);
-    addend(start, 5);
-
-    display(start);
-
-    return 0;
+   
 }
