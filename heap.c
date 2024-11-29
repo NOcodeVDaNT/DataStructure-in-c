@@ -32,6 +32,33 @@ void insertMAX(int arr[], int size, int x) {
     }
 
 }
+
+
+void heapifyMAXadjust(int a[],int size,int index)
+{
+    int largest = index;
+    int left = 2 * index ;
+    int right = 2 * index + 1;
+
+    if(left<=size && a[left]>a[largest]){
+        largest = left;
+    }
+
+    if(left<=size && a[right]>a[largest]){
+        largest = right;
+    }
+
+    if(largest!=index){
+        int temp=a[index];
+        a[index]=a[largest];
+        a[largest]=temp;
+        heapifyMAXadjust(a,size,largest);
+    }
+
+
+}
+
+
 int main(){
 
 }
