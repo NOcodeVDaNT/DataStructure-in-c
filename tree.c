@@ -121,7 +121,7 @@ tree* deleteBST(tree* root, int key) {
         else {
             tree* temp = findMin(root->right);
             root->data = temp->data; // Copy inorder successor's value
-            root->right = deleteBST(root->right, temp->data); // Delete successor
+            root->right = deleteBST(root->right, temp->data); // Delete successor VARNA WO VAHI PADA RAHEGA............
         }
     }
     return root;
