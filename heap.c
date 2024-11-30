@@ -54,6 +54,9 @@ void heapifyMAXadjust(int a[],int size,int index)
         a[largest]=temp;
         heapifyMAXadjust(a,size,largest);
     }
+    if(largest==i){
+        return;
+    }
 
 
 }
