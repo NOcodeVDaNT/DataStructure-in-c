@@ -81,6 +81,53 @@ bool searchBST(tree *root, int key){
 }
 
 
+//DELETE FROM BST 
+
+tree* findMin(tree* root) {
+    while (root->left != NULL) {
+        root = root->left;
+    }
+    return root;
+}
+
+tree* deleteBST(tree* root, int key) {
+    if (root == NULL) {
+        return root; // Node not found
+    }
+
+    // Traverse the tree to find the node to delete
+    if (key < root->data) {
+        root->left = deleteBST(root->left, key);
+    } else if (key > root->data) {
+        root->right = deleteBST(root->right, key);
+    } else {
+        // Node found
+        // Case 1: No child
+        if (root->left == NULL && root->right == NULL) {
+            free(root);
+            return NULL;
+        }
+        // Case 2: One child
+        else if (root->left == NULL) {
+            tree* temp = root->right;
+            free(root);
+            return temp;
+        } else if (root->right == NULL) {
+            tree* temp = root->left;
+            free(root);
+            return temp;
+        }
+        // Case 3: Two children
+        else {
+            tree* temp = findMin(root->right);
+            root->data = temp->data; // Copy inorder successor's value
+            root->right = deleteBST(root->right, temp->data); // Delete successor
+        }
+    }
+    return root;
+}
+
+
 
 int main(){
 
