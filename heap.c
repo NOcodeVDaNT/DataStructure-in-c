@@ -59,6 +59,45 @@ void heapifyMAXadjust(int a[],int size,int index)
 }
 
 
+int deleteMAXheap(int a[], int n) {
+    if (n <= 0) {
+        printf("Heap is empty.\n");
+        return -1; 
+    }
+
+    
+    int deleted= a[0];
+
+    
+    a[0] = a[n - 1];
+    n--; // Reduce the size of the heap
+
+   
+    int i = 0;
+    while (1) {
+        int largest = i;        
+        int left = 2 * i + 1;  
+        int right = 2 * i + 2;  
+        
+        if (left < n && a[left] > a[largest]) {
+            largest = left;
+        }      
+        if (right < n && a[right] > a[largest]) {
+            largest = right;
+        }  
+        if (largest == i) {
+            break;
+        }
+        int temp = a[i];
+        a[i] = a[largest];
+        a[largest] = temp;     
+        i = largest;
+    }
+
+    return maxElement;
+}
+
+
 int main(){
 
 }
