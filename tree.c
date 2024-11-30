@@ -62,6 +62,26 @@ return ;
 }
 
 
+bool searchBST(tree *root, int key){
+    if (root == NULL) {
+        return 0;
+    }
+    if (root->data == key) {
+            return 1;
+    }
+    if (root->data>key){
+        searchBST(root->left,key);
+    }
+    if(root->data<key){
+        searchBST(root->right,key);
+    }
+
+    
+        
+}
+
+
+
 int main(){
 
 }
