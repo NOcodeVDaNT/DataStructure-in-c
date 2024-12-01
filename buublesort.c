@@ -9,7 +9,7 @@
 
     int length = sizeof(n) / sizeof(n[0]);
 
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < length-1; i++)
     {
         for (int j = 0; j < length-i-1; j++)
         {
